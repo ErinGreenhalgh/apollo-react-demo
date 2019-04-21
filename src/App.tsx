@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import AddressBook from './addressBook';
 
@@ -8,6 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          My Address Book
           <AddressBook />
         </header>
       </div>
