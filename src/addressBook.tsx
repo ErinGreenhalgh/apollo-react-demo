@@ -4,37 +4,32 @@ import gql from 'graphql-tag';
 
 interface IAddress {
   id: string;
-  name: string;
   streetAddress: string,
-  postalCode: string;
+  city: string;
   state: string;
-  primary: boolean;
+  postalCode: string;
 }
 
 const AddressBook = () => {
   function renderAddress(address: IAddress) {
     return (
       <div className="address-card" key={address.id}>
-        <div>{address.name}</div>
         <div>{address.streetAddress}</div>
-        <div>{address.postalCode}</div>
-        <div>{address.state}</div>
-        <div>
-          <label htmlFor="default">Default</label>
-          <input id="default" type="checkbox" checked={address.primary}></input>
-        </div>
+        <div>{address.city}, {address.state} {address.postalCode}</div>
       </div>
     )
   }
 
   return (
-    <Query 
+    <Query
     query = {
       gql`{
         addresses {
-          streetAddress
           id
-          primary
+          streetAddress
+          city
+          state
+          postalCode
         }
       }
       `
